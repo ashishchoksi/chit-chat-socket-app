@@ -17,6 +17,7 @@ http.listen(PORT, () => {
 
 const io = require('socket.io')(http);
 
+// call except self refresh
 io.on('connection', (socket) => {
     console.log("Connection....");
 

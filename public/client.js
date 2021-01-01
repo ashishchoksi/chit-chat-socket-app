@@ -14,6 +14,12 @@ textarea.addEventListener('keyup', (e) => {
 });
 
 function sendMessage(m) {
+
+    textarea.value = ''
+    if ((m  .length - 1) === 0) {
+        return;
+    }
+
     // create obj
     let msg = {
         user: myname,
@@ -23,8 +29,6 @@ function sendMessage(m) {
     // append to current dom
     appendMsg(msg, 'outgoing');
     scrollToBottom();
-
-    textarea.value = ''
 
     // send to server
     socket.emit('message', msg); // send to server.js
